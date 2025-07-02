@@ -1,0 +1,13 @@
+services:
+  # Serviço da sua aplicação FastAPI
+  app:
+    build: . 
+    container_name: api # Nome do container
+    ports:
+    - "8000:8000" # Mapeia a porta 8000 do host para a porta 8000 do container
+
+    volumes:
+      - .:/app # Monta o diretório atual (onde está seu código) em /app dentro do container
+           # Isso é ótimo para desenvolvimento, pois as alterações no código
+           # São refletidas automaticamento no container devido ao --reload do uvicorn.
+  
